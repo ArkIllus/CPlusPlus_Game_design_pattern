@@ -4,6 +4,8 @@
 
 // 粒子类
 class Particle {
+	// 可以通过声明友元，并把下面的构造函数私有化，实现保证对象只能通过对象池创建
+	//friend class ParitclePool;
 public:
 	// 默认构造函数将粒子初始化为“未使用”状态
 	Particle(): framesLeft_(0){}

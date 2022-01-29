@@ -10,7 +10,20 @@ public:
 	// 对象池首次被创建时，所有的粒子均处于可用（not in use）状态
 	ParticlePool();
 
+	// 考虑重用现存的对象（对象有多种初始化函数）
+	// 1.在对象池内部初始化对象
 	void create(double x, double y, double xVel, double yVel, int lifetime);
+	// 2.在对象池外初始化对象
+	//Particle* create(){ //Return reference to available particle...}
+	//调用时这样：
+	//Particle* particle = pool.create();
+	//if (particle != nullptr) {
+	//	pool.create()->init(1, 2);
+	//}
+	//...
+	//pool.create()->init(1, 2, 3);
+	//...
+	//pool.create()->init(1, 2, 3, 4);
 
 	void animate();
 
